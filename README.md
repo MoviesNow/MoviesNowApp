@@ -34,4 +34,15 @@ As a Code Fellows student, I do not have much free time. When I do have free tim
  - Select a date in the future to get movie times for that day.
  - Selecting a movie time at a theater will redirect user to an outside web page (Fandango ) where they will be presented with the ability to purchase movie tickets.
 
- 
+### [Project Board](https://github.com/MoviesNow/MoviesNowApp/projects/1)
+
+ ### Wire Frames
+ ![Mobile Main Page 1](/readme-assets/Main1-Mobile.jpg) ![Mobile Main Page 2](/readme-assets/Main2-Mobile.jpg)
+ ![Mobile About Page 1](/readme-assets/About1-Mobile.jpg) ![Mobile About Page 2](/readme-assets/About2-Mobile.jpg)
+ ![Mobile Sign-In Page 1](/readme-assets/SignIn1-Mobile.jpg) ![Mobile Sign-In Page 2](/readme-assets/SignIn2-Mobile.jpg)
+
+ ### Domain Model
+![Domain Model](/readme-assets/Domain-Model.jpg)
+
+ ### Database Entity Relationship Diagram
+![Database Entity Relationship Diagram](/readme-assets/Database-Entity-Relationship-Diagram.jpg)
