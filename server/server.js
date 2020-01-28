@@ -30,18 +30,27 @@ client.on('error', err => console.error('error'));
 
 
 // routes
-app.get('/', movie);
+app.get('/', mainPageLoad);
 
 
 
 // function for the routes to be view in localhost
-
-function movie(request, response) {
+function mainPageLoad (request, response) {
+  let today = todayDate();
+  let query = `http://data.tmsapi.com/v1.1/movies/showings?startDate=${today}&zip=98166&api_key=${process.env.TMS_API_KEY}`;
   response.status(200).render('index');
 }
 
-
-
+function todayDate() {
+  let date = new Date();
+  let dateValues = [
+    date.getFullYear(),
+    date.getMonth()+1,
+    date.getDate(),
+  ];
+  let today = dateValues.join('-');
+  return today;
+}
 
 // error function
 function errorHandler(err, request, response) {
@@ -51,6 +60,7 @@ function errorHandler(err, request, response) {
 function developerErrorHandler(request, response) {
   response.status(404).send('sorry this request is not available yet');
 }
+
 
 
 
