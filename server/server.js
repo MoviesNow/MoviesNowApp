@@ -27,8 +27,8 @@ function errorHandler(err, request, response) {
   response.status(500).send('Sorry, something went wrong');
 }
 
-function developerErrorHandler(request,response) {
-  response.status(404).send ('sorry this request is not available yet');
+function developerErrorHandler(request, response) {
+  response.status(404).send('sorry this request is not available yet');
 }
 
 
