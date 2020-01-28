@@ -31,8 +31,8 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', movie);
-
-
+app.get('sign-in', signIn);
+app.get('register', registerPage);
 
 // function for the routes to be view in localhost
 
@@ -40,7 +40,13 @@ function movie(request, response) {
   response.status(200).render('index');
 }
 
+function signIn(request, response) {
+  response.status(200).render('sign-in');
+}
 
+function registerPage(request, response) {
+  response.status(200).render('register');
+}
 
 
 // error function
