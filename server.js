@@ -30,27 +30,15 @@ client.on('error', err => console.error('error'));
 
 
 // routes
-app.get('/', team);
-app.get('/views/header', movie);
+app.get('/', movie);
+
 
 
 // function for the routes to be view in localhost
-function team(request,response) {
-  response.status(200).send('Hello');
-
-}
-
 
 function movie(request, response) {
   response.status(200).render('../views/header');
 }
-
-
-
-
-
-
-
 
 
 
@@ -66,15 +54,13 @@ function developerErrorHandler(request,response) {
 
 
 
-
-
-
-
-
-
 app.use('*', developerErrorHandler);
 
 app.get((error, req, res) => errorHandler(error, res));
 
 // server listen for PORT
 app.listen(PORT, () => console.log(`Never Give up ${PORT}`));
+'use strict';
+
+
+
