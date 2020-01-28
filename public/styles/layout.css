@@ -64,3 +64,65 @@ footer button {
   place-self: center;
   border-radius: 25px;
 }
+
+/* About Us page layout CSS */
+
+.one, .two{
+  width:  66px;
+  height: 20px;
+  background-color: red;
+  place-self: center;
+  border-radius: 25px;
+  
+}
+
+.two{
+
+  margin-left: 290px;
+  
+}
+
+h1 {
+  text-align: center;
+  height: 51px;
+  padding: 10px;
+  background-color: black;
+  color: red;
+  font-size: xx-large;
+}
+
+.body{
+  width:414px;
+  height:896px ;
+  margin: 20px 20px 20px 20px;
+  
+}
+
+h2 {
+  height: 32px;
+  padding: 20px;
+  font-size: x-large;
+  color: red;
+}
+
+.around{
+  background-color: darkkhaki;
+}
+.lign{
+  text-align: center;
+  height: 743px;
+  margin: 40px 40px 40px ;
+  border-radius: 20px;
+  background-color: darkgrey;
+  margin-top: 20px;
+
+}
+
+
+
+.img2, .img3{
+  margin-top: 30px;
+
+}
+
+

@@ -31,6 +31,7 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', movie);
+app.get('/views/about', aboutUs);
 
 
 
@@ -38,6 +39,10 @@ app.get('/', movie);
 
 function movie(request, response) {
   response.status(200).render('index');
+}
+
+function aboutUs(request, response) {
+  response.status(200).render('about');
 }
 
 
