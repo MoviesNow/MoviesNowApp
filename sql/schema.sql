@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS movies;
 CREATE TABLE movies (
   id SERIAL PRIMARY KEY,
   title VARCHAR (255),
-  description VARCHAR (255),
+  movie_description VARCHAR (255),
   ratings_code VARCHAR (255),
   img_url VARCHAR (255),
   runtime VARCHAR (255)
