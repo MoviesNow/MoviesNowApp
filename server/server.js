@@ -36,29 +36,17 @@ app.get('/', mainPageLoad);
 
 // function for the routes to be view in localhost
 function mainPageLoad (request, response) {
-  let today = todayDate();
-  let query = `http://data.tmsapi.com/v1.1/movies/showings?startDate=${today}&zip=98166&api_key=${process.env.TMS_API_KEY}`;
-  return superagent.get(query)
+  let query = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1&region=US`;
+  superagent.get(query)
     .then(results => {
-      // console.log(results.body);
-      let movieArray = results.body;
-      const movies = movieArray.map(movieArray => {
-        let newMovie = new Movie(movieArray);
+      let movieArray = results.body.results;
+      const movies = movieArray.map(movie => {
+        let newMovie = new Movie(movie);
         addMovie(newMovie);
-        updateImg(newMovie);
-        console.log('newMovie: ', newMovie);
-
       });
-      console.log('all movies: ', movies);
       response.status(200).render('index');
-      return results;
     })
     .catch(error => errorHandler(error, request,response));
-}
-function updateImg(movie) {
-  let query = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&query=${movie.title}&page=1&include_adult=false`
-  console.log('TMDB query: ', query);
-  // let sql = 'UPDATE movies SET img_url = $1 WHERE title = $2;';
 }
 
 function todayDate() {
@@ -72,16 +60,16 @@ function todayDate() {
   return today;
 }
 function addMovie(movie){
-  let sql = 'INSERT INTO movies (title, movie_description, ratings_code, runtime) VALUES ($1, $2, $3, $4);';
-  let safeWords = [movie.title, movie.movie_description, movie.ratings_code, movie.runtime];
+  let sql = 'INSERT INTO movies (title, movie_description, img_url) VALUES ($1, $2, $3);';
+  let safeWords = [movie.title, movie.movieDescription, movie.imgURL];
   client.query(sql,safeWords);
 }
 function Movie(data) {
-  console.log('in the constructor');
   this.title = data.title;
-  this.movie_description = data.shortDescription;
-  data.ratings !== undefined ? this.ratings_code = data.ratings[0].code : this.ratings_code = 'Unrated';
-  this.runtime = data.runTime;
+  this.movieDescription = data.overview;
+  this.imgURL = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${data.poster_path}`;
+  // data.ratings !== undefined ? this.ratings_code = data.ratings[0].code : this.ratings_code = 'Unrated';
+  // this.runtime = data.runTime;
 }
 
 // error function
