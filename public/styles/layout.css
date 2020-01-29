@@ -1,76 +1,174 @@
 body {
   width: 414px;
   background-color: #444;
+}
 
-  }
+.fake-header h1  {
+  background-color: black;
+  text-align: center;
+  color: red;
+  align-self: center;
   
-  .fake-header h1  {
-    background-color: black;
-    text-align: center;
-    color: red;
-    align-self: center;
-  }
-  
-  #time{
-    align-self: center;
-  }
-  
-  #time input {
-    width: 50px;
-    border-radius: 25px;
-  }
-  
-  #location{
-    align-self: center;
-  }
-  
-  #location input {
-    width: 50px;
-    border-radius: 25px;
-  }
-  
-  .fake-header {
-    display: grid;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    grid-template-columns: auto auto auto;
-    align-self: center;
-    background-color: black;
-    color: red;
-    justify-items: center;
-    height: 51px;
-  } 
-  
-  .movies {
+}
+
+.signIn-header {
   display: grid;
-  grid-template-columns: 200px 200px;
-  grid-column-gap: 5px;
-  grid-template-rows: 51px, repeat(auto-fill, 300px);
-  grid-row-gap: 5px;
-  margin: 57px 5px 53px;
-  }
-  
-  footer {
-    display: grid;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    grid-template-columns: 130px 130px 130px;
-    background-color: black;
-    grid-row-gap: 50px;
-    height: 50px;
-    }
-  
-  footer button {
-    width:  66px;
-    height: 20px;
-    background-color: red;
-    place-self: center;
-    border-radius: 25px;
-    border: hidden;
-  }
+  align-self: center;
+  background-color: black;
+  color: red;
+  justify-items: center;
+  height: 51px;
+}
 
-  .image {
-    width: 200px;
-  }
+.signIn-header h1 {
+  align-self: center;
+}
+
+#time{
+  align-self: center;
+  height: 20px;
+}
+
+#time input {
+  width: 50px;
+  border-radius: 25px;
+  height: 20px; 
+}
+
+#location{
+  align-self: center;
+  height: 20px; 
+}
+
+#location input {
+  width: 50px;
+  border-radius: 25px;
+  height: 20px; 
+}
+
+
+.fake-header {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-self: center;
+  background-color: black;
+  color: red;
+  justify-items: center;
+  height: 51px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+} 
+
+
+
+.movies {
+display: grid;
+grid-template-columns: 200px 200px;
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+margin: 57px 5px 53px;
+grid-template-rows: 51px, repeat(auto-fill, 300px);
+
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 130px 130px 130px;
+  background-color: black;
+  grid-row-gap: 50px;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+footer button {
+  width:  66px;
+  height: 20px;
+  background-color: red;
+  place-self: center;
+  border-radius: 25px;
+}
+
+/* body{
+  margin:auto;
+} */
+
+main {
+  height:896px;
+  /* background-color: gray; */
+  overflow: scroll; 
+}
+
+
+#main #about {
+  width:  66px;
+  height: 20px;
+  background-color: red;
+  border-radius: 25px
+}
+
+#about {
+   margin-left: 290px;
+}
+
+#signIn {
+  /* background-color: grey; */
+  
+}
+
+.signIn {
+  /* background-color: gray; */
+  margin-top: 200px;
+}
+
+#signinbutton {
+  text-align: center;
+}
+
+#signinbutton input {
+  margin-top: 10px;
+}
+ 
+
+#register {
+   background-color: red;
+   margin-left: 132px;
+   width: 150px;
+   height: 32px;
+   border-radius: 25px;
+}
+
+#enterUserName {
+     text-align: center;
+     height: 31px;
+     margin-left: 150px;
+} 
+
+input {
+    align-self: center;
+    height: 60px;
+    width: 354px;
+    border-radius: 25px;
+    text-align: center;
+   
+}
+
+#signin {
+     background-color: red;
+     border-radius: 25px;
+     width: 150px;
+     height: 32px;
+     margin-left: 132px;
+     margin: 50px auto;
+}
+
+.registerButton {
+  /* background-color: gray; */
+  width: 414px;
+  height: 100px;
+  margin-top: 250px
+}
+   
+   

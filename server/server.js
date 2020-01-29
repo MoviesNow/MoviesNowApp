@@ -29,16 +29,24 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', mainPage);
-
+app.get('/sign-in', signIn);
+app.get('/register', registerPage);
 // function for the routes to be view in localhost
 // calls getMovies function then renders index.ejs
-function mainPage (request, response) {
-  getMovies(request,response)
-    .then(movies => response.status(200).render('index.ejs', {posters: movies,}));
+function mainPage(request, response) {
+  getMovies(request, response)
+    .then(movies => response.status(200).render('index.ejs', { posters: movies, }));
 }
 
+function signIn(request, response) {
+  response.status(200).render('sign-in');
+}
+
+function registerPage(request, response) {
+  response.status(200).render('register');
+}
 // queries TMDB for currently in theater movies, calls constructor array to create movie objects and addMovie function to store them
-function getMovies (request, response) {
+function getMovies(request, response) {
   try {
     let query = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1&region=US`;
     return superagent.get(query)
@@ -48,7 +56,7 @@ function getMovies (request, response) {
         return movies;
       });
   }
-  catch(error) {
+  catch (error) {
     errorHandler(error, request, response);
   }
 }
@@ -69,7 +77,7 @@ function updateImg(results) {
   results.body.results[0].poster_path === undefined ? moviePoster = `https://via.placeholder.com/300x450.JPEG?text=${(results.body.results[0].title).split(' ').join('+')}`
     : moviePoster = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${results.body.results[0].poster_path}`;
   let safeWords = [moviePoster, results.body.results[0].title];
-  client.query(sql,safeWords);
+  client.query(sql, safeWords);
 }
 
 // will likely need. Get's today's date and returns it formatted as YYYY-(M)M-DD
@@ -85,10 +93,10 @@ function todayDate() {
 }
 
 // Inserts values from each movie obj into movies table
-function addMovie(movie){
+function addMovie(movie) {
   let sql = 'INSERT INTO movies (title, movie_description, img_url) VALUES ($1, $2, $3);';
   let safeWords = [movie.title, movie.movieDescription, movie.imgURL];
-  client.query(sql,safeWords);
+  client.query(sql, safeWords);
   return movie;
 }
 
@@ -116,7 +124,3 @@ app.get((error, req, res) => errorHandler(error, res));
 
 // server listen for PORT
 app.listen(PORT, () => console.log(`Never Give up ${PORT}`));
-'use strict';
-
-
-
