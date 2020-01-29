@@ -8,13 +8,13 @@
 <body>
   <main>
 
-    <form>
+    <form action="/search" method="PUT">
       <div class="fake-header">
-        <label id="location">Location
-          <input type="text" name="Location" value="">
+        <label id="location">Zip Code
+          <input id="zip" type="text" inputmode="numeric" name="Location" maxlength="5" pattern="\b\d{5}\b" value="">
         </label>
 
-        <h1>MovieNOW</h1>
+        <h1>MoviesNOW</h1>
 
         <label id="time">Time
           <input type="text" name="Time" Value="">
@@ -24,7 +24,10 @@
       <section class="movies">
 
         <% posters.forEach(poster => { %>
+          <label for="<%= poster.title %>">
+            <input type="radio" name="movie-radios" id="<%= poster.title %>" value="<%= poster.title %>">
           <img class="image" src=" <%= poster.imgURL %>">
+          </label>
           <% }) %>
 
       </section>
@@ -33,7 +36,7 @@
 
   <footer>
     <button type="button"> Sign In </button>
-    <button type="button"> Go Now </button>
+    <button type="submit"> Go Now </button>
     <button type="button"> About Us </button>
   </footer>
 

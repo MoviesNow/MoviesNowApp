@@ -42,8 +42,8 @@ function mainPage(request, response) {
 }
 
 function deleteData() {
-  let sql = `DELETE FROM movies WHERE date_time < ${Date.now()};`
-  console.log(sql)
+  let sql = `DELETE FROM movies WHERE date_time < ${Date.now()};`;
+  console.log(sql);
   client.query(sql);
 }
 
