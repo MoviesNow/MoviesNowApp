@@ -1,12 +1,13 @@
 body {
+  height:896px ;
   width: 414px;
-  background-color: #444;
+  background-color: #222;
 }
 
 .fake-header h1  {
-  background-color: black;
+  background-color: #000;
   text-align: center;
-  color: red;
+  color: #FF0000;
   align-self: center;
   
 }
@@ -14,8 +15,8 @@ body {
 .signIn-header {
   display: grid;
   align-self: center;
-  background-color: black;
-  color: red;
+  background-color: #000;
+  color: #FF0000;
   justify-items: center;
   height: 51px;
 }
@@ -51,8 +52,8 @@ body {
   display: grid;
   grid-template-columns: auto auto auto;
   align-self: center;
-  background-color: black;
-  color: red;
+  background-color: #000;
+  color: #FF0000;
   justify-items: center;
   height: 51px;
   position: fixed;
@@ -75,7 +76,7 @@ grid-template-rows: 51px, repeat(auto-fill, 300px);
 footer {
   display: grid;
   grid-template-columns: 130px 130px 130px;
-  background-color: black;
+  background-color: #000;
   grid-row-gap: 50px;
   height: 50px;
   position: fixed;
@@ -86,26 +87,71 @@ footer {
 footer button {
   width:  66px;
   height: 20px;
-  background-color: red;
+  background-color: #FF0000;
   place-self: center;
   border-radius: 25px;
 }
 
-/* body{
-  margin:auto;
-} */
+/* About Us page layout CSS */
+
+.one, .two{
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 25px;
+  
+}
+
+.two{
+
+  margin-left: 290px;
+  
+}
+
+.lign section h1 {
+  text-align: center;
+  height: 51px;
+  background-color: #000;
+  color: #FF0000;
+  font-size: xx-large;
+}
+
+h2 {
+  height: 32px;
+  padding: 20px;
+  font-size: x-large;
+  color: #FF0000;
+}
+
+.around{
+  background-color: #444;
+  display: grid;
+  height: 795px;
+  place-items: center center;
+}
+.align{
+  text-align: center;
+  height: 743px;
+  border-radius: 20px;
+  width: 374px;
+  background-color: #888;
+
+}
+
+.img2, .img3{
+  margin-top: 30px;
+
+}
 
 main {
   height:896px;
-  /* background-color: gray; */
   overflow: scroll; 
 }
-
 
 #main #about {
   width:  66px;
   height: 20px;
-  background-color: red;
+  background-color: #FF0000;
   border-radius: 25px
 }
 
@@ -113,13 +159,8 @@ main {
    margin-left: 290px;
 }
 
-#signIn {
-  /* background-color: grey; */
-  
-}
 
 .signIn {
-  /* background-color: gray; */
   margin-top: 200px;
 }
 
@@ -130,10 +171,10 @@ main {
 #signinbutton input {
   margin-top: 10px;
 }
- 
+
 
 #register {
-   background-color: red;
+   background-color: #FF0000;
    margin-left: 132px;
    width: 150px;
    height: 32px;
@@ -156,7 +197,7 @@ input {
 }
 
 #signin {
-     background-color: red;
+     background-color: #FF0000;
      border-radius: 25px;
      width: 150px;
      height: 32px;
@@ -165,10 +206,15 @@ input {
 }
 
 .registerButton {
-  /* background-color: gray; */
   width: 414px;
   height: 100px;
   margin-top: 250px
 }
    
-   
+.movies img {
+  width: 200px;
+}
+
+button {
+  border: hidden;
+}
