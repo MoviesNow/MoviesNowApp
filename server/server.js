@@ -48,8 +48,11 @@ function aboutUs(request, response) {
 }
 
 function formToFill(request, response) {
+
   response.status(200).render('register');
 }
+
+
 
 
 

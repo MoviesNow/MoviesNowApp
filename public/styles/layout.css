@@ -82,13 +82,17 @@ footer button {
   
 }
 
-h1 {
-  text-align: center;
+header{
   height: 51px;
-  padding: 10px;
-  background-color: black;
+ justify-items: center;
+ background-color: black;
+  display: grid;
+} 
+
+h1 {
   color: red;
   font-size: xx-large;
+  align-self: center;
 }
 
 .body{

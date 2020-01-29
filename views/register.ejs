@@ -11,24 +11,24 @@
   <%- include('../views/header') %>
   <main class="fill">
     <div class="container">
-      <form  class="fillout" action="/resgister" method="post">
+      <form  class="fillout" action="/register" method="POST">
       
         <fieldset  >
-          <label for="Username">Username</label>
+          <label for="username">Username</label>
           
-            <input type="text" required \>
+            <input type="text" required >
           
         </fieldset>
         <fieldset  >
           <label for="fname">First Name</label>
           
-            <input type="text" required \>
+            <input type="text" required >
           
         </fieldset>
 
         <fieldset  >
             <label for="lname"> Last Name </label>
-            <input type="text" required \>
+            <input type="text" required >
           
         </fieldset>
 
@@ -38,7 +38,7 @@
             <input type="text"  required \>
           
         </fieldset>
-        <button id="push" type="register">Register</button>
+        <button id="push" type="submit">Register</button>
       </form>
     </div>
   </main>
@@ -51,4 +51,6 @@
     <button class="two" type="button"> About </button>
     
   </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="server/server.js"></script>
 </body>

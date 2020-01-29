@@ -14,15 +14,13 @@
 
 }
 
-.usern{
-  text-align: center;
-}
+
 
 
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 20px 0;
   display: block;
   border: 1px solid #ccc;
   border-radius: 15px;
@@ -35,7 +33,7 @@ input[type=text], select {
   background-color: red;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 20px 0;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -49,4 +47,6 @@ div.container {
   border-radius: 5px;
   background-color: lightslategrey;
   padding: 20px;
+  text-align: center;
 }
+
