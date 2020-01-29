@@ -7,6 +7,7 @@ width: 414px;
   text-align: center;
   color: red;
   align-self: center;
+  
 }
 
 .signIn-header {
@@ -24,20 +25,24 @@ width: 414px;
 
 #time{
   align-self: center;
+  height: 20px;
 }
 
 #time input {
   width: 50px;
   border-radius: 25px;
+  height: 20px;
 }
 
 #location{
   align-self: center;
+  height: 20px;
 }
 
 #location input {
   width: 50px;
   border-radius: 25px;
+  height: 20px;
 }
 
 
@@ -49,6 +54,9 @@ width: 414px;
   color: red;
   justify-items: center;
   height: 51px;
+  position: fixed;
+  width: 100%;
+  top: 0;
 } 
 
 
@@ -58,7 +66,9 @@ display: grid;
 grid-template-columns: 200px 200px;
 grid-column-gap: 5px;
 grid-row-gap: 5px;
-margin: 0 5px;
+margin: 57px 5px 53px;
+grid-template-rows: 51px, repeat(auto-fill, 300px);
+
 }
 
 footer {
@@ -67,6 +77,9 @@ footer {
   background-color: black;
   grid-row-gap: 50px;
   height: 50px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 footer button {
@@ -82,8 +95,9 @@ body{
 }
 
 main {
-  height:795px;
+  height:896px;
   background-color: gray;
+  overflow: scroll;
 }
 
 
@@ -133,12 +147,11 @@ main {
 
 input {
     align-self: center;
-    display: block;
     height: 60px;
     width: 354px;
     border-radius: 25px;
     text-align: center;
-    margin-left: 25px;
+   
 }
 
 #signin {
