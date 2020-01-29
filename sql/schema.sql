@@ -8,7 +8,8 @@ CREATE TABLE movies (
   movie_description VARCHAR,
   ratings_code VARCHAR (255),
   img_url VARCHAR (255),
-  runtime VARCHAR (255)
+  runtime VARCHAR (255),
+  date_time BIGINT
 );
 
 

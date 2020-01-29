@@ -36,9 +36,17 @@ app.get('/about', about);
 // function for the routes to be view in localhost
 // calls getMovies function then renders index.ejs
 function mainPage(request, response) {
+  deleteData();
   getMovies(request, response)
     .then(movies => response.status(200).render('index.ejs', { posters: movies, }));
 }
+
+function deleteData() {
+  let sql = `DELETE FROM movies WHERE date_time < ${Date.now()};`
+  console.log(sql)
+  client.query(sql);
+}
+
 
 function signIn(request, response) {
   response.status(200).render('sign-in');
@@ -100,8 +108,9 @@ function todayDate() {
 
 // Inserts values from each movie obj into movies table
 function addMovie(movie) {
-  let sql = 'INSERT INTO movies (title, movie_description, img_url) VALUES ($1, $2, $3);';
-  let safeWords = [movie.title, movie.movieDescription, movie.imgURL];
+  //console.log(movie, 'movies to add to db')
+  let sql = 'INSERT INTO movies (title, movie_description, img_url, date_time) VALUES ($1, $2, $3, $4);';
+  let safeWords = [movie.title, movie.movieDescription, movie.imgURL, Date.now()];
   client.query(sql, safeWords);
   return movie;
 }
