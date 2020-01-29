@@ -1,5 +1,6 @@
 body {
-width: 414px;
+  width: 414px;
+  background-color: #444;
 }
 
 .fake-header h1  {
@@ -31,18 +32,18 @@ width: 414px;
 #time input {
   width: 50px;
   border-radius: 25px;
-  height: 20px;
+  height: 20px; 
 }
 
 #location{
   align-self: center;
-  height: 20px;
+  height: 20px; 
 }
 
 #location input {
   width: 50px;
   border-radius: 25px;
-  height: 20px;
+  height: 20px; 
 }
 
 
@@ -90,14 +91,14 @@ footer button {
   border-radius: 25px;
 }
 
-body{
+/* body{
   margin:auto;
-}
+} */
 
 main {
   height:896px;
-  background-color: gray;
-  overflow: scroll;
+  /* background-color: gray; */
+  overflow: scroll; 
 }
 
 
@@ -113,12 +114,12 @@ main {
 }
 
 #signIn {
-  background-color: grey;
+  /* background-color: grey; */
   
 }
 
 .signIn {
-  background-color: gray;
+  /* background-color: gray; */
   margin-top: 200px;
 }
 
@@ -164,7 +165,7 @@ input {
 }
 
 .registerButton {
-  background-color: gray;
+  /* background-color: gray; */
   width: 414px;
   height: 100px;
   margin-top: 250px
