@@ -1,30 +1,50 @@
 body {
-width: 414px;
+  height:896px ;
+  width: 414px;
+  background-color: #222;
 }
 
 .fake-header h1  {
-  background-color: black;
+  background-color: #000;
   text-align: center;
-  color: red;
+  color: #FF0000;
+  align-self: center;
+  
+}
+
+.signIn-header {
+  display: grid;
+  align-self: center;
+  background-color: #000;
+  color: #FF0000;
+  justify-items: center;
+  height: 51px;
+}
+
+.signIn-header h1 {
   align-self: center;
 }
 
 #time{
   align-self: center;
+  height: 20px;
 }
 
 #time input {
   width: 50px;
   border-radius: 25px;
+  height: 20px; 
 }
 
 #location{
   align-self: center;
+  height: 20px; 
 }
 
 #location input {
   width: 50px;
   border-radius: 25px;
+  height: 20px; 
 }
 
 
@@ -32,11 +52,13 @@ width: 414px;
   display: grid;
   grid-template-columns: auto auto auto;
   align-self: center;
-  background-color: black;
-  color: red;
+  background-color: #000;
+  color: #FF0000;
   justify-items: center;
   height: 51px;
-
+  position: fixed;
+  width: 100%;
+  top: 0;
 } 
 
 
@@ -46,21 +68,26 @@ display: grid;
 grid-template-columns: 200px 200px;
 grid-column-gap: 5px;
 grid-row-gap: 5px;
-margin: 0 5px;
+margin: 57px 5px 53px;
+grid-template-rows: 51px, repeat(auto-fill, 300px);
+
 }
 
 footer {
   display: grid;
   grid-template-columns: 130px 130px 130px;
-  background-color: black;
+  background-color: #000;
   grid-row-gap: 50px;
   height: 50px;
-  }
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
 
 footer button {
   width:  66px;
   height: 20px;
-  background-color: red;
+  background-color: #FF0000;
   place-self: center;
   border-radius: 25px;
 }
@@ -70,8 +97,7 @@ footer button {
 .one, .two{
   width:  66px;
   height: 20px;
-  background-color: red;
-  place-self: center;
+  background-color: #FF0000;
   border-radius: 25px;
   
 }
@@ -82,47 +108,113 @@ footer button {
   
 }
 
-h1 {
+.lign section h1 {
   text-align: center;
   height: 51px;
-  padding: 10px;
-  background-color: black;
-  color: red;
+  background-color: #000;
+  color: #FF0000;
   font-size: xx-large;
-}
-
-.body{
-  width:414px;
-  height:896px ;
-  margin: 20px 20px 20px 20px;
-  
 }
 
 h2 {
   height: 32px;
   padding: 20px;
   font-size: x-large;
-  color: red;
+  color: #FF0000;
 }
 
 .around{
-  background-color: darkkhaki;
+  background-color: #444;
+  display: grid;
+  height: 795px;
+  place-items: center center;
 }
-.lign{
+.align{
   text-align: center;
   height: 743px;
-  margin: 40px 40px 40px ;
   border-radius: 20px;
-  background-color: darkgrey;
-  margin-top: 20px;
+  width: 374px;
+  background-color: #888;
 
 }
-
-
 
 .img2, .img3{
   margin-top: 30px;
 
 }
 
+main {
+  height:896px;
+  overflow: scroll; 
+}
 
+#main #about {
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 25px
+}
+
+#about {
+   margin-left: 290px;
+}
+
+
+.signIn {
+  margin-top: 200px;
+}
+
+#signinbutton {
+  text-align: center;
+}
+
+#signinbutton input {
+  margin-top: 10px;
+}
+
+
+#register {
+   background-color: #FF0000;
+   margin-left: 132px;
+   width: 150px;
+   height: 32px;
+   border-radius: 25px;
+}
+
+#enterUserName {
+     text-align: center;
+     height: 31px;
+     margin-left: 150px;
+} 
+
+input {
+    align-self: center;
+    height: 60px;
+    width: 354px;
+    border-radius: 25px;
+    text-align: center;
+   
+}
+
+#signin {
+     background-color: #FF0000;
+     border-radius: 25px;
+     width: 150px;
+     height: 32px;
+     margin-left: 132px;
+     margin: 50px auto;
+}
+
+.registerButton {
+  width: 414px;
+  height: 100px;
+  margin-top: 250px
+}
+   
+.movies img {
+  width: 200px;
+}
+
+button {
+  border: hidden;
+}
