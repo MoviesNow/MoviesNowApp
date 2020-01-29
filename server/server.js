@@ -45,41 +45,57 @@ function mainPageLoad (request, response) {
       const movies = movieArray.map(movieArray => {
         let newMovie = new Movie(movieArray);
         addMovie(newMovie);
-        updateImg(newMovie);
-        console.log('newMovie: ', newMovie);
+        grabImg(newMovie);
+        // console.log('newMovie: ', newMovie);
 
       });
-      console.log('all movies: ', movies);
+      // console.log('all movies: ', movies);
       response.status(200).render('index');
       return results;
     })
     .catch(error => errorHandler(error, request,response));
 }
-function updateImg(movie) {
-  let query = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&query=${movie.title}&page=1&include_adult=false`
-  console.log('TMDB query: ', query);
-  // let sql = 'UPDATE movies SET img_url = $1 WHERE title = $2;';
+function grabImg(movie) {
+  let query = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&query=${movie.title}&page=1&include_adult=false`;
+  // console.log('TMDB query: ', query);
+  return superagent.get(query)
+    .then(results => {
+      updateImg(results);
+
+      // console.log(`https://image.tmdb.org/t/p/w300_and_h450_bestv2${results.body.results[0].poster_path}`);
+    });
+}
+
+function updateImg(results) {
+  let sql = 'UPDATE movies SET img_url = $1 WHERE LOWER(title) = LOWER($2);';
+  let moviePoster = '';
+  results.body.results[0].poster_path === undefined ? moviePoster = `https://via.placeholder.com/300x450.JPEG?text=${(results.body.results[0].title).split(' ').join('+')}`
+  : moviePoster = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${results.body.results[0].poster_path}`;
+  let safeWords = [moviePoster, results.body.results[0].title]
+  client.query(sql,safeWords);
 }
 
 function todayDate() {
   let date = new Date();
   let dateValues = [
     date.getFullYear(),
-    date.getMonth()+1,
-    date.getDate(),
+    date.getMonth() + 1,
+    date.getDate()
   ];
   let today = dateValues.join('-');
   return today;
 }
 function addMovie(movie){
+  // console.log('in addMovie');
   let sql = 'INSERT INTO movies (title, movie_description, ratings_code, runtime) VALUES ($1, $2, $3, $4);';
   let safeWords = [movie.title, movie.movie_description, movie.ratings_code, movie.runtime];
   client.query(sql,safeWords);
 }
 function Movie(data) {
-  console.log('in the constructor');
+  // console.log('in the constructor');
   this.title = data.title;
-  this.movie_description = data.shortDescription;
+  data.shortDescription === undefined ? this.movie_description = "No description available."
+  : this.movie_description = data.shortDescription;
   data.ratings !== undefined ? this.ratings_code = data.ratings[0].code : this.ratings_code = 'Unrated';
   this.runtime = data.runTime;
 }
