@@ -31,8 +31,8 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', movie);
-app.get('sign-in', signIn);
-app.get('register', registerPage);
+app.get('/sign-in', signIn);
+app.get('/register', registerPage);
 
 // function for the routes to be view in localhost
 
