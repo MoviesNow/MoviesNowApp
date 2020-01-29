@@ -36,15 +36,38 @@ app.get('/about', about);
 // function for the routes to be view in localhost
 // calls getMovies function then renders index.ejs
 function mainPage(request, response) {
-  deleteData();
-  getMovies(request, response)
-    .then(movies => response.status(200).render('index.ejs', { posters: movies, }));
+  deleteData()
+    .then(checkMovies)
+    .then(movies => {
+      if(movies.rowCount >= 1) {
+        response.status(200).render('index.ejs', { posters: movies });
+      }
+      else {
+        getMovies()
+          .then( movies => {
+            response.status(200).render('index.ejs', { posters: movies });
+          })
+          .catch( e => console.error(e) );
+      }
+    });
+
+
 }
 
+function checkMovies () {
+  let sql = 'SELECT * FROM movies;';
+  return client.query(sql);
+}
+
+
+
+
+
 function deleteData() {
-  let sql = `DELETE FROM movies WHERE date_time < ${Date.now()};`
-  console.log(sql)
-  client.query(sql);
+  // 300000 = 5mn
+  let sql = `DELETE FROM movies WHERE date_time < ${Date.now()+ 300000};`;
+  console.log(sql);
+  return client.query(sql);
 }
 
 
