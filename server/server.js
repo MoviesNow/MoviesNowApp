@@ -48,13 +48,32 @@ function mainPageLoad (request, response) {
     })
     .catch(error => errorHandler(error, request,response));
 }
+function grabImg(movie) {
+  let query = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&query=${movie.title}&page=1&include_adult=false`;
+  // console.log('TMDB query: ', query);
+  return superagent.get(query)
+    .then(results => {
+      updateImg(results);
+
+      // console.log(`https://image.tmdb.org/t/p/w300_and_h450_bestv2${results.body.results[0].poster_path}`);
+    });
+}
+
+function updateImg(results) {
+  let sql = 'UPDATE movies SET img_url = $1 WHERE LOWER(title) = LOWER($2);';
+  let moviePoster = '';
+  results.body.results[0].poster_path === undefined ? moviePoster = `https://via.placeholder.com/300x450.JPEG?text=${(results.body.results[0].title).split(' ').join('+')}`
+  : moviePoster = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${results.body.results[0].poster_path}`;
+  let safeWords = [moviePoster, results.body.results[0].title]
+  client.query(sql,safeWords);
+}
 
 function todayDate() {
   let date = new Date();
   let dateValues = [
     date.getFullYear(),
-    date.getMonth()+1,
-    date.getDate(),
+    date.getMonth() + 1,
+    date.getDate()
   ];
   let today = dateValues.join('-');
   return today;
