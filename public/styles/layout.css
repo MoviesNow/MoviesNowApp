@@ -1,66 +1,76 @@
 body {
-width: 414px;
-}
+  width: 414px;
+  background-color: #444;
 
-.fake-header h1  {
-  background-color: black;
-  text-align: center;
-  color: red;
-  align-self: center;
-}
-
-#time{
-  align-self: center;
-}
-
-#time input {
-  width: 50px;
-  border-radius: 25px;
-}
-
-#location{
-  align-self: center;
-}
-
-#location input {
-  width: 50px;
-  border-radius: 25px;
-}
-
-
-.fake-header {
+  }
+  
+  .fake-header h1  {
+    background-color: black;
+    text-align: center;
+    color: red;
+    align-self: center;
+  }
+  
+  #time{
+    align-self: center;
+  }
+  
+  #time input {
+    width: 50px;
+    border-radius: 25px;
+  }
+  
+  #location{
+    align-self: center;
+  }
+  
+  #location input {
+    width: 50px;
+    border-radius: 25px;
+  }
+  
+  .fake-header {
+    display: grid;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    grid-template-columns: auto auto auto;
+    align-self: center;
+    background-color: black;
+    color: red;
+    justify-items: center;
+    height: 51px;
+  } 
+  
+  .movies {
   display: grid;
-  grid-template-columns: auto auto auto;
-  align-self: center;
-  background-color: black;
-  color: red;
-  justify-items: center;
-  height: 51px;
-
-} 
-
-
-
-.movies {
-display: grid;
-grid-template-columns: 200px 200px;
-grid-column-gap: 5px;
-grid-row-gap: 5px;
-margin: 0 5px;
-}
-
-footer {
-  display: grid;
-  grid-template-columns: 130px 130px 130px;
-  background-color: black;
-  grid-row-gap: 50px;
-  height: 50px;
+  grid-template-columns: 200px 200px;
+  grid-column-gap: 5px;
+  grid-template-rows: 51px, repeat(auto-fill, 300px);
+  grid-row-gap: 5px;
+  margin: 57px 5px 53px;
+  }
+  
+  footer {
+    display: grid;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    grid-template-columns: 130px 130px 130px;
+    background-color: black;
+    grid-row-gap: 50px;
+    height: 50px;
+    }
+  
+  footer button {
+    width:  66px;
+    height: 20px;
+    background-color: red;
+    place-self: center;
+    border-radius: 25px;
+    border: hidden;
   }
 
-footer button {
-  width:  66px;
-  height: 20px;
-  background-color: red;
-  place-self: center;
-  border-radius: 25px;
-}
+  .image {
+    width: 200px;
+  }
