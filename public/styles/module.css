@@ -1,0 +1,52 @@
+
+/* Style for register page */
+.fill{
+  width: 414px;
+  height: 795px;
+  background-color: lightslategrey;
+  
+}
+
+
+
+.fillout {
+  margin-top: 200px;
+
+}
+
+.usern{
+  text-align: center;
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+ 
+}
+
+#push{
+  width: 100%;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#push:hover {
+  background-color: black;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: lightslategrey;
+  padding: 20px;
+}

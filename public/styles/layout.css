@@ -125,4 +125,9 @@ h2 {
 
 }
 
+.footer{display: grid;
+grid-template-columns: 130px 130px 130px;
+background-color: black;
+grid-row-gap: 50px;
+height: 50px;}
 

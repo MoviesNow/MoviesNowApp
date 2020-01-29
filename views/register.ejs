@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('../views/head') %>
+<title>Register</title>
+<body>
+  
+
+  <%- include('../views/header') %>
+  <main class="fill">
+    <div class="container">
+      <form  class="fillout" action="/resgister" method="post">
+      
+        <fieldset  >
+          <label for="Username">Username</label>
+          
+            <input type="text" required \>
+          
+        </fieldset>
+        <fieldset  >
+          <label for="fname">First Name</label>
+          
+            <input type="text" required \>
+          
+        </fieldset>
+
+        <fieldset  >
+            <label for="lname"> Last Name </label>
+            <input type="text" required \>
+          
+        </fieldset>
+
+        <fieldset>
+            <label for="Email"> E-mail Adress </label>
+          
+            <input type="text"  required \>
+          
+        </fieldset>
+        <button id="push" type="register">Register</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+  
+    <button class="one" type="button"> Main </button>
+    
+    
+    <button class="two" type="button"> About </button>
+    
+  </footer>
+</body>

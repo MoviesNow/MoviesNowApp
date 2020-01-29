@@ -31,7 +31,9 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', movie);
-app.get('/views/about', aboutUs);
+app.get('/about', aboutUs);
+app.get('/register', formToFill);
+
 
 
 
@@ -43,6 +45,10 @@ function movie(request, response) {
 
 function aboutUs(request, response) {
   response.status(200).render('about');
+}
+
+function formToFill(request, response) {
+  response.status(200).render('register');
 }
 
 
