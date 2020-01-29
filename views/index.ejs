@@ -23,35 +23,9 @@
 
       <section class="movies">
 
-        <div class="image">
-          <a href="https://placeholder.com"><img
-              src="https://via.placeholder.com/200x300.JPEG?text=First+Movie+Avaliable"></a>
-        </div>
-
-        <div class="image">
-          <a href="https://placeholder.com">
-            <img src="https://via.placeholder.com/200x300.JPEG?text=Second+Movie+Available"></a>
-        </div>
-
-        <div>
-          <a href="https://placeholder.com">
-            <img src="https://via.placeholder.com/200x300.JPEG?text=Third+Movie+Available"></a>
-        </div>
-
-        <div class=" image">
-          <a href="https://placeholder.com">
-            <img src="https://via.placeholder.com/200x300.JPEG?text=Forth+Movie+Available"></a>
-        </div>
-
-        <div class="image">
-          <a href="https://placeholder.com">
-            <img src="https://via.placeholder.com/200x300.JPEG?text=Fifth+Movie+Available"></a>
-        </div>
-
-        <div class="image">
-          <a href="https://placeholder.com">
-            <img src="https://via.placeholder.com/200x300.JPEG?text=Sixth+Movie+Available"></a>
-        </div>
+        <% posters.forEach(poster => { %>
+          <img class="image" src=" <%= poster.imgURL %>">
+          <% }) %>
 
       </section>
     </form>
