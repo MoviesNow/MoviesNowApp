@@ -29,6 +29,9 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', mainPage);
+app.get('/sign-in', signIn);
+app.get('/register', registerPage);
+app.get('/about', about);
 
 // function for the routes to be view in localhost
 // calls getMovies function then renders index.ejs
@@ -45,6 +48,13 @@ function deleteData() {
 }
 
 
+function signIn(request, response) {
+  response.status(200).render('sign-in');
+}
+
+function registerPage(request, response) {
+  response.status(200).render('register');
+}
 // queries TMDB for currently in theater movies, calls constructor array to create movie objects and addMovie function to store them
 function getMovies(request, response) {
   try {
@@ -78,6 +88,10 @@ function updateImg(results) {
     : moviePoster = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${results.body.results[0].poster_path}`;
   let safeWords = [moviePoster, results.body.results[0].title];
   client.query(sql, safeWords);
+}
+
+function about(request, response) {
+  response.status(200).render('about');
 }
 
 // will likely need. Get's today's date and returns it formatted as YYYY-(M)M-DD
@@ -125,7 +139,3 @@ app.get((error, req, res) => errorHandler(error, res));
 
 // server listen for PORT
 app.listen(PORT, () => console.log(`Never Give up ${PORT}`));
-'use strict';
-
-
-

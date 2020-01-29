@@ -1,76 +1,220 @@
 body {
+  height:896px ;
   width: 414px;
-  background-color: #444;
+  background-color: #222;
+}
 
-  }
+.fake-header h1  {
+  background-color: #000;
+  text-align: center;
+  color: #FF0000;
+  align-self: center;
   
-  .fake-header h1  {
-    background-color: black;
-    text-align: center;
-    color: red;
-    align-self: center;
-  }
-  
-  #time{
-    align-self: center;
-  }
-  
-  #time input {
-    width: 50px;
-    border-radius: 25px;
-  }
-  
-  #location{
-    align-self: center;
-  }
-  
-  #location input {
-    width: 50px;
-    border-radius: 25px;
-  }
-  
-  .fake-header {
-    display: grid;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    grid-template-columns: auto auto auto;
-    align-self: center;
-    background-color: black;
-    color: red;
-    justify-items: center;
-    height: 51px;
-  } 
-  
-  .movies {
+}
+
+.signIn-header {
   display: grid;
-  grid-template-columns: 200px 200px;
-  grid-column-gap: 5px;
-  grid-template-rows: 51px, repeat(auto-fill, 300px);
-  grid-row-gap: 5px;
-  margin: 57px 5px 53px;
-  }
-  
-  footer {
-    display: grid;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    grid-template-columns: 130px 130px 130px;
-    background-color: black;
-    grid-row-gap: 50px;
-    height: 50px;
-    }
-  
-  footer button {
-    width:  66px;
-    height: 20px;
-    background-color: red;
-    place-self: center;
-    border-radius: 25px;
-    border: hidden;
-  }
+  align-self: center;
+  background-color: #000;
+  color: #FF0000;
+  justify-items: center;
+  height: 51px;
+}
 
-  .image {
-    width: 200px;
-  }
+.signIn-header h1 {
+  align-self: center;
+}
+
+#time{
+  align-self: center;
+  height: 20px;
+}
+
+#time input {
+  width: 50px;
+  border-radius: 25px;
+  height: 20px; 
+}
+
+#location{
+  align-self: center;
+  height: 20px; 
+}
+
+#location input {
+  width: 50px;
+  border-radius: 25px;
+  height: 20px; 
+}
+
+
+.fake-header {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-self: center;
+  background-color: #000;
+  color: #FF0000;
+  justify-items: center;
+  height: 51px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+} 
+
+
+
+.movies {
+display: grid;
+grid-template-columns: 200px 200px;
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+margin: 57px 5px 53px;
+grid-template-rows: 51px, repeat(auto-fill, 300px);
+
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 130px 130px 130px;
+  background-color: #000;
+  grid-row-gap: 50px;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+footer button {
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  place-self: center;
+  border-radius: 25px;
+}
+
+/* About Us page layout CSS */
+
+.one, .two{
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 25px;
+  
+}
+
+.two{
+
+  margin-left: 290px;
+  
+}
+
+.lign section h1 {
+  text-align: center;
+  height: 51px;
+  background-color: #000;
+  color: #FF0000;
+  font-size: xx-large;
+}
+
+h2 {
+  height: 32px;
+  padding: 20px;
+  font-size: x-large;
+  color: #FF0000;
+}
+
+.around{
+  background-color: #444;
+  display: grid;
+  height: 795px;
+  place-items: center center;
+}
+.align{
+  text-align: center;
+  height: 743px;
+  border-radius: 20px;
+  width: 374px;
+  background-color: #888;
+
+}
+
+.img2, .img3{
+  margin-top: 30px;
+
+}
+
+main {
+  height:896px;
+  overflow: scroll; 
+}
+
+#main #about {
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 25px
+}
+
+#about {
+   margin-left: 290px;
+}
+
+
+.signIn {
+  margin-top: 200px;
+}
+
+#signinbutton {
+  text-align: center;
+}
+
+#signinbutton input {
+  margin-top: 10px;
+}
+
+
+#register {
+   background-color: #FF0000;
+   margin-left: 132px;
+   width: 150px;
+   height: 32px;
+   border-radius: 25px;
+}
+
+#enterUserName {
+     text-align: center;
+     height: 31px;
+     margin-left: 150px;
+} 
+
+input {
+    align-self: center;
+    height: 60px;
+    width: 354px;
+    border-radius: 25px;
+    text-align: center;
+   
+}
+
+#signin {
+     background-color: #FF0000;
+     border-radius: 25px;
+     width: 150px;
+     height: 32px;
+     margin-left: 132px;
+     margin: 50px auto;
+}
+
+.registerButton {
+  width: 414px;
+  height: 100px;
+  margin-top: 250px
+}
+   
+.movies img {
+  width: 200px;
+}
+
+button {
+  border: hidden;
+}
