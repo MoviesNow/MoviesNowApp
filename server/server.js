@@ -39,8 +39,10 @@ function mainPage(request, response) {
   deleteData()
     .then(checkMovies)
     .then(movies => {
+      let goodMovies = movies.rows;
       if(movies.rowCount >= 1) {
-        response.status(200).render('index.ejs', { posters: movies });
+        console.log('Ive seen these');
+        response.status(200).render('index.ejs', { posters: goodMovies });
       }
       else {
         getMovies()
@@ -65,7 +67,7 @@ function checkMovies () {
 
 function deleteData() {
   // 300000 = 5mn
-  let sql = `DELETE FROM movies WHERE date_time < ${Date.now()+ 300000};`;
+  let sql = `DELETE FROM movies WHERE date_time > ${Date.now()+ 300000};`;
   console.log(sql);
   return client.query(sql);
 }
@@ -133,7 +135,7 @@ function todayDate() {
 function addMovie(movie) {
   //console.log(movie, 'movies to add to db')
   let sql = 'INSERT INTO movies (title, movie_description, img_url, date_time) VALUES ($1, $2, $3, $4);';
-  let safeWords = [movie.title, movie.movieDescription, movie.imgURL, Date.now()];
+  let safeWords = [movie.title, movie.movieDescription, movie.img_url, Date.now()];
   client.query(sql, safeWords);
   return movie;
 }
@@ -142,7 +144,7 @@ function addMovie(movie) {
 function Movie(data) {
   this.title = data.title;
   this.movieDescription = data.overview;
-  this.imgURL = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${data.poster_path}`;
+  this.img_url = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${data.poster_path}`;
   // data.ratings !== undefined ? this.ratings_code = data.ratings[0].code : this.ratings_code = 'Unrated';
   // this.runtime = data.runTime;
 }
