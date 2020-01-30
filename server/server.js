@@ -36,6 +36,9 @@ app.get('/result', resultPage);
 app.get('/sign-in', signIn);
 app.get('/register', registerPage);
 app.get('/about', about);
+app.get('/cindy', cindy);
+app.get('/blandine', blandine);
+app.get('/eugene', eugene);
 app.post('/find', findTheater);
 
 // function for the routes to be view in localhost
@@ -45,16 +48,16 @@ function mainPage(request, response) {
     .then(checkMovies)
     .then(movies => {
       let goodMovies = movies.rows;
-      if(movies.rowCount >= 1) {
+      if (movies.rowCount >= 1) {
         console.log('Ive seen these');
         response.status(200).render('index.ejs', { posters: goodMovies });
       }
       else {
         getMovies()
-          .then( movies => {
+          .then(movies => {
             response.status(200).render('index.ejs', { posters: movies });
           })
-          .catch( e => console.error(e) );
+          .catch(e => console.error(e));
       }
     });
 }
@@ -72,7 +75,7 @@ function findTheater(request, response) {
   //   .catch( e => console.error(e) );
 }
 
-function checkMovies () {
+function checkMovies() {
   let sql = 'SELECT * FROM movies;';
   return client.query(sql);
 }
@@ -131,6 +134,18 @@ function updateImg(results) {
 
 function about(request, response) {
   response.status(200).render('about');
+}
+
+function blandine(request, response) {
+  response.status(200).render('blandine');
+}
+
+function eugene(request, response) {
+  response.status(200).render('eugene');
+}
+
+function cindy(request, response) {
+  response.status(200).render('cindy');
 }
 
 // will likely need. Get's today's date and returns it formatted as YYYY-(M)M-DD
