@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('../views/head') %>
+
+
+<body>
+  <form action="/find" method="POST" id="movieSearch">
+  <main>
+
+      <div class="fake-header">
+        <label id="location">Zip Code
+          <input id="zip" type="text" inputmode="numeric" name="location" maxlength="5" pattern="\b\d{5}\b" value="">
+        </label>
+
+        <h1>MoviesNOW</h1>
+
+        <label id="time-label">Time
+          <select id="time" name="time-selection">
+            <option selected="selected" value="Go Now!">Go Now!</option>
+
+            <% for( let i = 9; i < 24; i++){ %>
+            <% let time ;%>
+            <%if( i < 12){%>
+            <% time= i + ':00AM'%>
+            <% } else if( i > 12){%>
+            <%  time = (i -12 ) + ':00PM'%>
+            <%  } else {%>
+            <% time = '12:00PM'}%>
+            <option value="<%= time %>"> <%= time %></option>
+            <% }%>
+
+          </select>
+        </label>
+      </div>
+      <section class="movies">
+
+        <% posters.forEach(poster => { %>
+          <label for="<%= poster.title %>">
+            <input type="radio" name="movie-radios" id="<%= poster.title %>" value="<%= poster.title %>">
+          <img class="image" src=" <%= poster.img_url %>">
+          </label>
+          <% }) %>
+
+      </section>
+    
+  </main>
+
+  <footer>
+    <button type="button">Sign In</button>
+    <button form="movieSearch" type="submit">Movie Time!</button>
+    <button type="button">About</button>
+  </footer>
+</form>
+</body>
+
+</html>
