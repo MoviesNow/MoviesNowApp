@@ -32,6 +32,7 @@ client.on('error', err => console.error('error'));
 
 // routes
 app.get('/', mainPage);
+app.get('/result', resultPage);
 app.get('/sign-in', signIn);
 app.get('/register', registerPage);
 app.get('/about', about);
@@ -133,7 +134,11 @@ function deleteData() {
 }
 
 function signIn(request, response) {
-  response.status(200).render('sign-in');
+  response.status(200).render('result');
+}
+
+function resultPage(request, response) {
+  response.status(200).render('result');
 }
 
 function registerPage(request, response) {

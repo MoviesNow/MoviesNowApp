@@ -227,6 +227,7 @@ input[type=radio] {
   opacity: 0.4;
 }
 
+
 [type=radio]:not(:checked) + img {
   opacity: 1;
 }
@@ -237,3 +238,58 @@ select {
   background-color: #FFF;
   font-size: 12px;
 }
+
+/* result  page style */
+
+
+.bottom{
+
+border-radius: 10px;
+margin: 6px 5px 5px 5px;
+ background-color: #000;
+ width: 404px;
+ height:149px;
+
+}
+.mainPic{
+  /* margin-top: 51px; */
+}
+
+#timeBottom{
+  background-color: #FF0000;
+  border-radius: 25px;
+  width: 88px;
+  height: 20px;
+  margin-top: 3px;
+  margin-left: 1px;
+ 
+}
+
+
+.main{
+  background-color: #888;
+}
+
+.textEnter{
+  color: #FFF;
+  margin-left: 14px;
+  padding-top: 10px;
+  
+}
+.sign, .about{
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 25px;
+  
+}
+
+.about{
+
+  margin-left: 180px;
+  margin-right: -80px;
+  
+}
+
+
+
