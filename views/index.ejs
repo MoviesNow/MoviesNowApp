@@ -6,18 +6,18 @@
 
 
 <body>
+  <form action="/find" method="POST" id="movieSearch">
   <main>
 
-    <form action="/search" method="PUT">
       <div class="fake-header">
         <label id="location">Zip Code
-          <input id="zip" type="text" inputmode="numeric" name="Location" maxlength="5" pattern="\b\d{5}\b" value="">
+          <input id="zip" type="text" inputmode="numeric" name="location" maxlength="5" pattern="\b\d{5}\b" value="">
         </label>
 
         <h1>MoviesNOW</h1>
 
-        <label id="time">Time
-          <select name="time">
+        <label id="time-label">Time
+          <select id="time" name="time-selection">
             <option selected="selected" value="Go Now!">Go Now!</option>
 
             <% for( let i = 9; i < 24; i++){ %>
@@ -29,7 +29,6 @@
             <%  } else {%>
             <% time = '12:00PM'}%>
             <option value="<%= time %>"> <%= time %></option>
-
             <% }%>
 
           </select>
@@ -45,17 +44,15 @@
           <% }) %>
 
       </section>
-    </form>
+    
   </main>
 
   <footer>
-    <button type="button"> Sign In </button>
-    <button type="submit"> Go Now </button>
-    <button type="button"> About Us </button>
+    <button type="button">Sign In</button>
+    <button form="movieSearch" type="submit">Movie Time!</button>
+    <button type="button">About</button>
   </footer>
-
-
-
+</form>
 </body>
 
 </html>

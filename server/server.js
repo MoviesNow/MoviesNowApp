@@ -4,6 +4,7 @@
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 // require ejs
 require('ejs');
@@ -16,6 +17,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(express.static('./public'));
 
+// Application Middleware
+app.use(express.urlencoded());
+app.use(methodOverride('_method'));
+
 // set up view engine for the routes
 app.set('view engine', 'ejs');
 
@@ -25,13 +30,12 @@ const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.error('error'));
 
-
-
 // routes
 app.get('/', mainPage);
 app.get('/sign-in', signIn);
 app.get('/register', registerPage);
 app.get('/about', about);
+app.post('/find', findTheater);
 
 // function for the routes to be view in localhost
 // calls getMovies function then renders index.ejs
@@ -52,8 +56,19 @@ function mainPage(request, response) {
           .catch( e => console.error(e) );
       }
     });
+}
 
-
+function findTheater(request, response) {
+  console.log('Request: ', request.body);
+  let zip = request.body.Location;
+  let time = request.body['time-selection'];
+  let title = request.body['movie-radios'];
+  console.log(`zipcode: ${zip} | time: ${time} | movie: ${title}`)
+  // const safeWords = [title];
+  // let sql = 'INSERT INTO search_results(title) VALUES ($1) RETURNING id;';
+  // client.query(sql, safeWords)
+  //   .then(results => response.redirect('index.ejs'))
+  //   .catch( e => console.error(e) );
 }
 
 function checkMovies () {
@@ -61,16 +76,11 @@ function checkMovies () {
   return client.query(sql);
 }
 
-
-
-
-
 function deleteData() {
   // 300000 = 5mn
   let sql = `DELETE FROM movies WHERE date_time + 300000 > ${Date.now()};`;
   return client.query(sql);
 }
-
 
 function signIn(request, response) {
   response.status(200).render('sign-in');
