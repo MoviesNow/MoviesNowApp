@@ -218,3 +218,11 @@ input {
 button {
   border: hidden;
 }
+
+select {
+  width: 73px;
+  border-radius: 25px;
+  height: 26px;
+  background-color: #FFF;
+  font-size: 12px;
+}
