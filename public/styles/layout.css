@@ -25,15 +25,17 @@ body {
   align-self: center;
 }
 
-#time{
+#time-label{
   align-self: center;
   height: 20px;
 }
 
-#time input {
-  width: 50px;
+#time {
+  align-self: center;
+  width: 70px;
   border-radius: 25px;
-  height: 20px; 
+  height: 26px; 
+  font-size: 12px;
 }
 
 #location{

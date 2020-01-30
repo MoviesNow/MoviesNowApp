@@ -8,7 +8,7 @@
 <body>
   <main>
 
-    <form action="/search" method="PUT">
+    <form action="/search" method="PUT" id="movieSearch">
       <div class="fake-header">
         <label id="location">Zip Code
           <input id="zip" type="text" inputmode="numeric" name="Location" maxlength="5" pattern="\b\d{5}\b" value="">
@@ -16,8 +16,8 @@
 
         <h1>MoviesNOW</h1>
 
-        <label id="time">Time
-          <select name="time">
+        <label id="#time-label">Time
+          <select id="time" name="time">
             <option selected="selected" value="Go Now!">Go Now!</option>
 
             <% for( let i = 9; i < 24; i++){ %>
@@ -50,7 +50,7 @@
 
   <footer>
     <button type="button"> Sign In </button>
-    <button type="submit"> Go Now </button>
+    <button form="movieSearch" type="submit"> Go Now </button>
     <button type="button"> About Us </button>
   </footer>
 
