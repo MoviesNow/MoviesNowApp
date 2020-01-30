@@ -30,13 +30,6 @@ body {
   height: 26px;
 }
 
-#time {
-  width: 70px;
-  border-radius: 25px;
-  height: 26px; 
-  font-size: 12px;
-}
-
 #location{
   align-self: center;
   height: 26px; 
@@ -236,6 +229,7 @@ input[type=radio] {
 
 [type=radio]:not(:checked) + img {
   opacity: 1;
+}
 select {
   width: 73px;
   border-radius: 25px;

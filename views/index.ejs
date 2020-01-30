@@ -17,18 +17,22 @@
         <h1>MoviesNOW</h1>
 
         <label id="time-label">Time
-          <select id="time" name="time-selection">
+          <select id="time" name="timeSelection">
             <option selected="selected" value="Go Now!">Go Now!</option>
 
-            <% for( let i = 9; i < 24; i++){ %>
+            <% for( let i = 10; i < 24; i++){ %>
             <% let time ;%>
+            <% let timeVal ;%>
             <%if( i < 12){%>
             <% time= i + ':00AM'%>
+            <% timeVal= i + ':00'%>
             <% } else if( i > 12){%>
             <%  time = (i -12 ) + ':00PM'%>
+            <% timeVal= i + ':00'%>
             <%  } else {%>
             <% time = '12:00PM'}%>
-            <option value="<%= time %>"> <%= time %></option>
+            <% timeVal= i + ':00'%>
+            <option value="<%= timeVal %>"> <%= time %></option>
             <% }%>
 
           </select>
@@ -38,7 +42,7 @@
 
         <% posters.forEach(poster => { %>
           <label for="<%= poster.title %>">
-            <input type="radio" name="movie-radios" id="<%= poster.title %>" value="<%= poster.title %>">
+            <input type="radio" name="movieTitle" id="<%= poster.title %>" value="<%= poster.title %>">
           <img class="image" src=" <%= poster.img_url %>">
           </label>
           <% }) %>
