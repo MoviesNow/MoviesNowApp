@@ -233,4 +233,10 @@ input[type=radio] {
 
 [type=radio]:not(:checked) + img {
   opacity: 1;
+select {
+  width: 73px;
+  border-radius: 25px;
+  height: 26px;
+  background-color: #FFF;
+  font-size: 12px;
 }
