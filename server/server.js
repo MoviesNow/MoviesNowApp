@@ -67,8 +67,7 @@ function checkMovies () {
 
 function deleteData() {
   // 300000 = 5mn
-  let sql = `DELETE FROM movies WHERE date_time > ${Date.now()+ 300000};`;
-  console.log(sql);
+  let sql = `DELETE FROM movies WHERE date_time + 300000 > ${Date.now()};`;
   return client.query(sql);
 }
 

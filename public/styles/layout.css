@@ -145,7 +145,6 @@ h2 {
 
 main {
   height:896px;
-  overflow: scroll; 
 }
 
 #main #about {
@@ -219,6 +218,21 @@ button {
   border: hidden;
 }
 
+/* make posters into radio buttons */
+input[type=radio] {
+  display: none;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  opacity: 0.4;
+}
+
+[type=radio]:not(:checked) + img {
+  opacity: 1;
 select {
   width: 73px;
   border-radius: 25px;

@@ -8,21 +8,17 @@
 <body>
   <main>
 
-    <form>
+    <form action="/search" method="PUT">
       <div class="fake-header">
-        <label id="location">Location
-          <input type="text" name="Location" value="">
+        <label id="location">Zip Code
+          <input id="zip" type="text" inputmode="numeric" name="Location" maxlength="5" pattern="\b\d{5}\b" value="">
         </label>
 
-        <h1>MovieNOW</h1>
+        <h1>MoviesNOW</h1>
 
         <label id="time">Time
           <select name="time">
             <option selected="selected" value="Go Now!">Go Now!</option>
-            <!-- <option value="9:00">9:00</option>
-            <option value="10:00">10:00</option>
-            <option value="11:00">11:00</option>
-            <option value="12:00">12:00</option> -->
 
             <% for( let i = 9; i < 24; i++){ %>
             <% let time ;%>
@@ -42,7 +38,10 @@
       <section class="movies">
 
         <% posters.forEach(poster => { %>
+          <label for="<%= poster.title %>">
+            <input type="radio" name="movie-radios" id="<%= poster.title %>" value="<%= poster.title %>">
           <img class="image" src=" <%= poster.img_url %>">
+          </label>
           <% }) %>
 
       </section>
@@ -51,7 +50,7 @@
 
   <footer>
     <button type="button"> Sign In </button>
-    <button type="button"> Go Now </button>
+    <button type="submit"> Go Now </button>
     <button type="button"> About Us </button>
   </footer>
 
