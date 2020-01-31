@@ -21,6 +21,10 @@ h1 {
   font-weight: 900;
 }
 
+h1.results-styling {
+  color: #FF0000;
+}
+
 h2 {
   height: 32px;
   font-size: 26px;
@@ -36,8 +40,17 @@ h3{
   font-weight: 900;
 }
 
+h4 {
+  font-size: 20px;
+  color: #FF0000;
+}
+
 span {
   font-size: 15px;
+}
+
+.results-styling {
+  margin-bottom: 5px;
 }
 
 .signIn-header {
