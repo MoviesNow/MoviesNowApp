@@ -12,7 +12,7 @@ As a Code Fellows student, I do not have much free time. When I do have free tim
 
 ### MVP Features
 
- - A responsive website for desktop & mobile.
+ - A responsive website for mobile.
  - A clean user friendly UI.
  - Selectable proposed movie times.
  - Movie image & title cards that the user can click on.
