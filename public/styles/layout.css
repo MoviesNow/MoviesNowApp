@@ -31,7 +31,7 @@ body {
 }
 
 #time {
-  width: 70px;
+  width: 72px;
   border-radius: 25px;
   height: 26px; 
   font-size: 12px;
@@ -109,7 +109,7 @@ footer button {
 }
 
 .two{
-  margin-left: 290px;
+  margin-left: 240px;
 }
 
 .lign section h1 {
@@ -145,10 +145,6 @@ h2 {
 .img2, .img3{
   margin-top: 30px;
 
-}
-
-main {
-  height:896px;
 }
 
 #main #about {
@@ -258,7 +254,7 @@ border-radius: 10px;
 margin: 6px 5px 5px 5px;
  background-color: #000;
  width: 404px;
- height: 157px;
+ height: 155px;
 
 }
 .mainPic{
@@ -283,6 +279,8 @@ h3 {
   color: #FFF;
   margin-left: 14px;
   padding-top: 10px;
+  height: 225px;
+  width: 392px;
   
 }
 .sign, .about{
@@ -305,6 +303,6 @@ h3 {
   margin: 6px 5px 5px 5px;
    background-color: #000;
    width: 404px;
-   height:300px;
+   height:226px;
   }
 
