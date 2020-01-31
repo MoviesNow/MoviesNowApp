@@ -1,7 +1,7 @@
 body {
   height:896px ;
   width: 414px;
-  background-color: #222;
+  background-color: #333;
 }
 
 .fake-header h1  {
@@ -31,7 +31,7 @@ body {
 }
 
 #time {
-  width: 70px;
+  width: 72px;
   border-radius: 25px;
   height: 26px; 
   font-size: 12px;
@@ -60,6 +60,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 100;
 } 
 
 .movies {
@@ -69,7 +70,6 @@ grid-column-gap: 5px;
 grid-row-gap: 5px;
 margin: 57px 5px 53px;
 grid-template-rows: 51px, repeat(auto-fill, 300px);
-
 }
 
 footer {
@@ -102,13 +102,14 @@ footer button {
   height: 20px;
   background-color: #FF0000;
   border-radius: 25px;
-  
+}
+
+.one {
+  margin-left: 20px;
 }
 
 .two{
-
-  margin-left: 290px;
-  
+  margin-left: 240px;
 }
 
 .lign section h1 {
@@ -144,10 +145,6 @@ h2 {
 .img2, .img3{
   margin-top: 30px;
 
-}
-
-main {
-  height:896px;
 }
 
 #main #about {
@@ -226,8 +223,10 @@ input[type=radio] {
   display: none;
 }
 
-[type=radio] + img {
-  cursor: pointer;
+.signIn-header a {
+ text-decoration: none;
+ color: inherit; 
+ align-self: center;
 }
 
 [type=radio]:checked + img {
@@ -236,6 +235,8 @@ input[type=radio] {
 
 [type=radio]:not(:checked) + img {
   opacity: 1;
+}
+
 select {
   width: 73px;
   border-radius: 25px;
@@ -243,3 +244,65 @@ select {
   background-color: #FFF;
   font-size: 12px;
 }
+
+/* result  page style */
+
+
+.bottom{
+
+border-radius: 10px;
+margin: 6px 5px 5px 5px;
+ background-color: #000;
+ width: 404px;
+ height: 155px;
+
+}
+.mainPic{
+  width: 414px;
+}
+
+#timeBottom{
+  background-color: #FF0000;
+  border-radius: 25px;
+  width: 88px;
+  height: 20px;
+  margin-top: 3px;
+  margin-left: 1px;
+ 
+}
+
+h3 {
+  margin: 0 10px 5px 0;
+}
+
+.textEnter{
+  color: #FFF;
+  margin-left: 14px;
+  padding-top: 10px;
+  height: 225px;
+  width: 392px;
+  
+}
+.sign, .about{
+  width:  66px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 25px;
+  
+}
+
+.about{
+
+  margin-left: 180px;
+  margin-right: -80px;
+  
+}
+
+.bottom1{
+  border-radius: 10px;
+  margin: 6px 5px 5px 5px;
+   background-color: #000;
+   width: 404px;
+   height:226px;
+  }
+
