@@ -46,7 +46,6 @@ function mainPage(request, response) {
     .then(movies => {
       let goodMovies = movies.rows;
       if(movies.rowCount >= 1) {
-        console.log('Ive seen these');
         response.status(200).render('index.ejs', { posters: goodMovies });
       }
       else {
@@ -59,54 +58,64 @@ function mainPage(request, response) {
     });
 }
 
+
+
 function findTheater(request, response) {
   let {location, timeSelection, movieTitle} = request.body;
-  console.log(`location: ${location} | timeSelection: ${timeSelection} | movieTitle: ${movieTitle}`);
-  let query = `http://data.tmsapi.com/v1.1/movies/showings?startDate=${todayDate()}&zip=${location}&api_key=${process.env.TMS_API_KEY}`;
-  // checkSearches(location, timeSelection, movieTitle)
-  //   .then(results => {
-  //     let searchResults = results.rows[0];
-  //     if(results.rowCount > 0) {
-  //     response.status(200).render('search.ejs', { results: searchResults });
-  //     } else {
-  // search(query);
-  let movieArray = {};
-  fakeResults.forEach(movie => {
-    movie.title.toLowerCase() === ('Star Wars: The Rise of Skywalker').toLowerCase() ? movieArray = movie : null;
-  });
+  let query = `http://data.tmsapi.com/v1.1/movies/showings?startDate=${todayDate()}&zip=${location}&radius=15&api_key=${process.env.TMS_API_KEY}`;
+  checkSearches(location, timeSelection, movieTitle)
+    .then(results => {
+      let searchResults = results.rows[0];
+      if(results.rowCount > 0) {
+        response.status(200).render('search.ejs', { results: searchResults });
+      } else {
+        search(query)
+          .then (results => {
+            let movieArray = {};
+            results.forEach(movie => {
+              movie.title.toLowerCase() === movieTitle.toLowerCase() ? movieArray = movie : null;
+            });
+            let selectedTime = parseInt(timeSelection.replace(':',''));
 
-  
-  let selectedTime = parseInt(timeSelection.replace(':',''));
-  console.log(selectedTime);
-
-  let showtimeIndex;
-  let smallestDiff = Infinity;
-  movieArray.showtimes.forEach((showtime, index) => {
-    let movieTime = parseInt((showtime.dateTime).substr(showtime.dateTime.length - 5).replace(':',''));
-    console.log(movieTime);
-    let timeDiff = movieTime - selectedTime;
-    // console.log(showtime);
-    if (timeDiff < 0) {
-      console.log(timeDiff);
-    } else if (timeDiff < smallestDiff) {
-      smallestDiff = timeDiff;
-      showtimeIndex = index;
-      // console.log(showtimeIndex);
-    }
-  });
-  console.log(movieArray.showtimes[showtimeIndex]);
-
-  // console.log(timeValue > movieDateTime);
-  // }
-  // });
+            let showtimeIndex;
+            let smallestDiff = Infinity;
+            movieArray.showtimes.forEach((showtime, index) => {
+              let movieTime = parseInt((showtime.dateTime).substr(showtime.dateTime.length - 5).replace(':',''));
+              let timeDiff = movieTime - selectedTime;
+              if (timeDiff < 0) {
+                null;
+              } else if (timeDiff < smallestDiff) {
+                smallestDiff = timeDiff;
+                showtimeIndex = index;
+              }
+            });
+            let imgSQL = `SELECT * FROM movies WHERE title = $1;`;
+            let imgSafeWord = [movieTitle];
+            client.query(imgSQL, imgSafeWord)
+              .then(results => {
+                let imgURL = results.rows[0].img_url;
+                let resultsObject = {
+                  title: movieTitle,
+                  img_url: imgURL,
+                  theater: movieArray.showtimes[showtimeIndex].theatre.name,
+                  time: movieArray.showtimes[showtimeIndex].dateTime.substr(movieArray.showtimes[showtimeIndex].dateTime.length - 5),
+                  description: movieArray.shortDescription
+                };
+                response.status(200).render('result.ejs', { details: resultsObject });
+              });
+          });
+      }
+    });
 }
+
+
 
 function search(query) {
   try {
     return superagent.get(query)
       .then(results => {
         let resultsArray = results.body;
-        console.log(resultsArray);
+        // console.log(resultsArray);
         // const searchResultsArray = resultsArray.map( => addMovie(new Movie(movie)));
         return resultsArray;
       });
@@ -165,7 +174,8 @@ function grabImg(movie) {
   let query = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&query=${movie.title}&page=1&include_adult=false`;
   return superagent.get(query)
     .then(results => {
-      updateImg(results);
+      return results;
+      //   updateImg(results);
     });
 }
 

@@ -12,16 +12,16 @@
         <!-- <section class="all"> -->
           <div>
             <%- include('../views/header') %>
-          <img class="mainPic" src="https://via.placeholder.com/414x635.JPEG?text=First+Movie+Avaliable">
+          <img class="mainPic" src="<%= details.img_url %>">
         </div>
         <div class="bottom">
           <div class="textEnter">
-            <h3 id="h3">
-              AMC Soutcenter 16
+            <h3><%= details.title %></h3>
+            <h3><%= details.description %></h3>
+            <h3>
+              <%= details.theater %>
             </h3>
-            <h4>3600 Southcenter Mall</h4>
-            <h5>Takuwila, WA 98188</h5>
-            <button id="timeBottom" type="button">Time</button>
+            <button id="timeBottom" type="button"><%= details.time %></button>
           </div>
         </div>
       <!-- </section> -->
