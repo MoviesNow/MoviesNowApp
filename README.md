@@ -4,7 +4,7 @@ As a Code Fellows student, I do not have much free time. When I do have free tim
 
 ### Description
 
-**Given** user has selected a time
+**Given** user has selected a time and entered in a zip code
 
 **When** the user selects a movie
 
