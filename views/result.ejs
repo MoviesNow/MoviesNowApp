@@ -9,29 +9,24 @@
     <form action="/find" method="POST" id="movieSearch">
       <main class="main">
         
-        <!-- <section class="all"> -->
           <div>
             <%- include('../views/header') %>
           <img class="mainPic" src="<%= details.img_url %>">
         </div>
         <div class="bottom">
           <div class="textEnter">
-            <h3><%= details.title %></h3>
-            <h3><%= details.description %></h3>
-            <h3>
-              <%= details.theater %>
-            </h3>
+            <h1 class="results-styling"><%= details.title %></h1>
+            <p class="results-styling"><%= details.description %></p>
+            <h4 class="results-styling"><%= details.theater %></h4>
             <button id="timeBottom" type="button"><%= details.time %></button>
           </div>
         </div>
-      <!-- </section> -->
     </main>
     <footer>
   
-      <button class="sign" type="button"> Sign In </button>
-      
-      
-      <button class="about" type="button"> About </button>
+      <button class="sign" type="button" onclick="window.location.href = '/';"> Main </button>
+    <button class="about" type="button" onclick="window.location.href = '/about';"> About </button>
+
       
     </footer>   
   </body>
