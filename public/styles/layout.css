@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Limelight|Open+Sans&display=swap');
+
 body {
   height:896px ;
   width: 414px;
   background-color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
 }
 
 .fake-header h1  {
@@ -9,7 +13,31 @@ body {
   text-align: center;
   color: #FF0000;
   align-self: center;
-  
+}
+
+h1 {
+  font-family: 'Limelight', cursive;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+h2 {
+  height: 32px;
+  font-size: 26px;
+  color: #000;
+  border-bottom: 5px solid black;
+  margin: 10px;
+  display: inline-block;
+}
+
+h3{
+  font-family: 'Limelight', cursive;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+span {
+  font-size: 15px;
 }
 
 .signIn-header {
@@ -105,11 +133,11 @@ footer button {
 }
 
 .one {
-  margin-left: 20px;
+  margin-left: 36px;
 }
 
 .two{
-  margin-left: 240px;
+  margin-left: 210px;
 }
 
 .lign section h1 {
@@ -118,13 +146,6 @@ footer button {
   background-color: #000;
   color: #FF0000;
   font-size: xx-large;
-}
-
-h2 {
-  height: 32px;
-  padding: 20px;
-  font-size: x-large;
-  color: #FF0000;
 }
 
 .around{
@@ -139,13 +160,17 @@ h2 {
   border-radius: 20px;
   width: 374px;
   background-color: #888;
+}
 
+li {
+  margin-left: 10px;
 }
 
 .img2, .img3{
   margin-top: 30px;
-
 }
+
+
 
 #main #about {
   width:  66px;
@@ -216,11 +241,19 @@ input {
 
 button {
   border: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
 }
 
 /* make posters into radio buttons */
 input[type=radio] {
   display: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  align-self: center;
 }
 
 .signIn-header a {
