@@ -1,8 +1,8 @@
-/* body {
+body {
   height:896px ;
   width: 414px;
-  background-color: #222;
-} */
+  background-color: #333;
+}
 
 .fake-header h1  {
   background-color: #000;
@@ -60,6 +60,7 @@
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 100;
 } 
 
 .movies {
@@ -69,7 +70,6 @@ grid-column-gap: 5px;
 grid-row-gap: 5px;
 margin: 57px 5px 53px;
 grid-template-rows: 51px, repeat(auto-fill, 300px);
-
 }
 
 footer {
@@ -102,7 +102,6 @@ footer button {
   height: 20px;
   background-color: #FF0000;
   border-radius: 25px;
-  
 }
 
 .one {
@@ -110,7 +109,7 @@ footer button {
 }
 
 .two{
-margin-left: 240px;
+  margin-left: 240px;
 }
 
 .lign section h1 {
@@ -148,9 +147,9 @@ h2 {
 
 }
 
-/* main {
+main {
   height:896px;
-} */
+}
 
 #main #about {
   width:  66px;
@@ -228,18 +227,20 @@ input[type=radio] {
   display: none;
 }
 
-[type=radio] + img {
-  cursor: pointer;
+.signIn-header a {
+ text-decoration: none;
+ color: inherit; 
+ align-self: center;
 }
 
 [type=radio]:checked + img {
   opacity: 0.4;
 }
 
-
 [type=radio]:not(:checked) + img {
   opacity: 1;
 }
+
 select {
   width: 73px;
   border-radius: 25px;
@@ -257,11 +258,11 @@ border-radius: 10px;
 margin: 6px 5px 5px 5px;
  background-color: #000;
  width: 404px;
- height:149px;
+ height: 149px;
 
 }
 .mainPic{
-  /* margin-top: 51px; */
+  width: 414px;
 }
 
 #timeBottom{
@@ -274,9 +275,8 @@ margin: 6px 5px 5px 5px;
  
 }
 
-
-.main{
-  background-color: #888;
+h3 {
+  margin: 0 10px 5px 0;
 }
 
 .textEnter{
@@ -302,12 +302,11 @@ margin: 6px 5px 5px 5px;
   
 }
 
-.bottom1 {
-
+.bottom1{
   border-radius: 10px;
   margin: 6px 5px 5px 5px;
    background-color: #000;
    width: 404px;
-   height:225px;
-  
+   height:300px;
   }
+
