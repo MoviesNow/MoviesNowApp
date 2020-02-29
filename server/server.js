@@ -45,20 +45,20 @@ app.post('/find', findTheater);
 // calls getMovies function then renders index.ejs
 function mainPage(request, response) {
   deleteData()
-    .then(checkMovies)
-    .then(movies => {
-      let goodMovies = movies.rows;
-      if(movies.rowCount >= 1) {
-        response.status(200).render('index.ejs', { posters: goodMovies });
-      }
-      else {
+//     .then(checkMovies)
+//     .then(movies => {
+//       let goodMovies = movies.rows;
+//       if(movies.rowCount >= 1) {
+//         response.status(200).render('index.ejs', { posters: goodMovies });
+//       }
+//       else {
         getMovies()
           .then(movies => {
             response.status(200).render('index.ejs', { posters: movies });
           })
           .catch(e => console.error(e));
-      }
-    });
+//       }
+//     });
 }
 
 
